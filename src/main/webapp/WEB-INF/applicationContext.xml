@@ -11,5 +11,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	</bean>
 	
 	<bean id="service" class="com.ifisolution.service.DataService">	</bean>
-	
+	<bean id="fetchdata" class="com.ifisolution.action.FetchingDataAction">	
+		<property name="data" ref="service"></property>
+	</bean>
 </beans>

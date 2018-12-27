@@ -5,15 +5,15 @@ import java.util.List;
 
 public class Sheet {
 	private String name;
-	private List<Record> listRecord;
+	private float[] listPa;
 	
 	public Sheet() {
-		listRecord=new ArrayList<Record>();
+		listPa=new float[7];
 	}
 
-	public Sheet(String name, ArrayList<Record> listRecord) {		
+	public Sheet(String name, float[] listPa) {		
 		this.name = name;
-		this.listRecord = listRecord;
+		this.listPa = listPa;
 	}
 
 	public String getName() {
@@ -24,12 +24,12 @@ public class Sheet {
 		this.name = name;
 	}
 
-	public List<Record> getListRecord() {
-		return listRecord;
+	public float[] getListPa() {
+		return listPa;
 	}
 
-	public void setListRecord(ArrayList<Record> listRecord) {
-		this.listRecord = listRecord;
+	public void setListRecord(float[] listPa) {
+		this.listPa = listPa;
 	}
 	
 	

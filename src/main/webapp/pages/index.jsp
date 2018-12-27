@@ -29,10 +29,10 @@
 		$(document).ready(function(){
 			var paData=[];
 			$.getJSON("fetch.action", function(data){
-				/* $.each(data.listPa,function(index){
-					paData[index]=this;
-				}); */
-				paData=data.listPa;
+				$.each(data.listSheet,function(index){
+					paData[index]={name:this.name,data:this.listPa};
+				}); 
+				
 				var chart={type: 'column'};
 				var title={text: 'Weekly PA'};
 				var subtitle={text: 'Source: WorldClimate.com'};
@@ -65,18 +65,7 @@
 					  yAxis: yAxis,
 					  tooltip: tooltip,
 					  plotOptions: plotOptions,
-					  series: [{
-					    name: 'ENR062A3',
-					    data: paData
-		
-					  }, {
-					    name: 'ENR04CA0',
-					    data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0]
-		
-					  }, {
-					    name: 'ENR077A9',
-					    data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0]
-					  }]
+					  series: paData
 					});
 				});
 			});
