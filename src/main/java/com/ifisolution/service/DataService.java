@@ -14,20 +14,16 @@ import com.ifisolution.model.Sheet;
 public class DataService {
 	RestTemplate restTemplate;
 	
-	 
-	 
 	public DataService() {	
-		
 		super();
 		restTemplate=new RestTemplate();
 		System.out.println("contructor DataSevice");
-		// TODO Auto-generated constructor stub
 	}
 
 	public List<Record> getRecords(String sheetName,String date){
 		System.out.println("getRecords");
-		//Record[] list = restTemplate.getForObject(DataUri.URI_DATA+"/records/"+sheetName+"?date="+date, Record[].class);
-		Record[] list = restTemplate.getForObject("http://localhost:9090/services/records/ENR062A3?date=2016-10-24", Record[].class);
+		Record[] list = restTemplate.getForObject(DataUri.URI_DATA+"/records/"+sheetName+"?date="+date, Record[].class);
+		//Record[] list = restTemplate.getForObject("http://localhost:9090/services/records/ENR062A3?date=2016-10-24", Record[].class);
 		System.out.println(list.length);
 		List<Record> l=Arrays.asList(list);
 		System.out.println("list.size="+l.size());
@@ -35,16 +31,30 @@ public class DataService {
 	}
 	public List<Float> getPaPerDay(String sheetName,String date){
 		System.out.println("getRecords");
-		//Record[] list = restTemplate.getForObject(DataUri.URI_DATA+"/records/"+sheetName+"?date="+date, Record[].class);
-		Record[] list = restTemplate.getForObject("http://localhost:9090/services/records/ENR062A3?date=2016-10-24", Record[].class);
-		System.out.println(list.length);
+		Record[] list = restTemplate.getForObject(DataUri.URI_DATA+"/records/"+sheetName+"?date="+date, Record[].class);		
 		List<Float> l=new ArrayList<Float>();
 		String temp="";
 		for(int i=0;i<list.length;i++) {
 			temp=list[i].getDatetimepas().get(0).getPa();
-			l.add(Float.parseFloat(temp.substring(0, temp.length()-2)));
+			float f=Float.parseFloat(temp.substring(0, temp.length()-2));
+			System.out.print(f+"_");
+			l.add(f);
 		}
-		System.out.println("size()="+l.size());
+		System.out.println("\nsize()="+l.size());
+		return l;
+	}
+
+	public List<Float> getPsPerDay(String sheetName,String date){
+		System.out.println("getRecords");
+		Record[] list = restTemplate.getForObject(DataUri.URI_DATA+"/records/"+sheetName+"?date="+date, Record[].class);		
+		List<Float> l=new ArrayList<Float>();
+		String temp="";
+		for(int i=0;i<list.length;i++) {
+			temp=list[i].getPs();
+			float f=Float.parseFloat(temp.substring(0, temp.length()-2));
+			System.out.print(f+"_");
+			l.add(f);
+		}
 		return l;
 	}
 	public Sheet getPaWeekly(String sheetName){
