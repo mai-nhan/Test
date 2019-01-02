@@ -33,17 +33,33 @@ public class DataService {
 		System.out.println("list.size="+l.size());
 		return l;
 	}
-	public float[] getPaWeekly(String sheetName){
+	public List<Float> getPaPerDay(String sheetName,String date){
+		System.out.println("getRecords");
+		//Record[] list = restTemplate.getForObject(DataUri.URI_DATA+"/records/"+sheetName+"?date="+date, Record[].class);
+		Record[] list = restTemplate.getForObject("http://localhost:9090/services/records/ENR062A3?date=2016-10-24", Record[].class);
+		System.out.println(list.length);
+		List<Float> l=new ArrayList<Float>();
+		String temp="";
+		for(int i=0;i<list.length;i++) {
+			temp=list[i].getDatetimepas().get(0).getPa();
+			l.add(Float.parseFloat(temp.substring(0, temp.length()-2)));
+		}
+		System.out.println("size()="+l.size());
+		return l;
+	}
+	public Sheet getPaWeekly(String sheetName){
 		System.out.println("getPaWeekly");		
-		float[] list = restTemplate.getForObject(DataUri.URI_PA_WEEKLY+sheetName, float[].class);				
-		return list;
+		Sheet sheet = restTemplate.getForObject(DataUri.URI_PA_WEEKLY+sheetName, Sheet.class);				
+		return sheet;
 	}
 	public List<Sheet> getSheet(){
+		System.out.println("get Sheet");
 		List<Sheet> listSheet=new ArrayList<Sheet>();
 		String[] listSheetName=restTemplate.getForObject(DataUri.URI_PA_WEEKLY, String[].class);
 		for(int i=0;i<3;i++) {
-			listSheet.add(new Sheet(listSheetName[i],getPaWeekly(listSheetName[i])));
+			listSheet.add(getPaWeekly(listSheetName[i]));
 		}
+		System.out.println(listSheet.size());
 		return listSheet;
 	}
 	

@@ -1,10 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Home</title>
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<<<<<<< HEAD
 	<script type="text/javascript" src="js/highcharts.js"></script>
 	<script type="text/javascript" src="js/chart1.js"></script>
+=======
+	<script type="text/javascript" src="https://code.highcharts.com/highcharts.js""></script>
+	<script type="text/javascript" src="js/execute.js"></script>
+>>>>>>> cc877abbd4d19655524448338b57a4e28ce0fa72
 	<link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 <body>
