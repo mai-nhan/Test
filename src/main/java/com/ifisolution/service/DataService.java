@@ -14,6 +14,8 @@ import com.ifisolution.model.Sheet;
 public class DataService {
 	RestTemplate restTemplate;
 	
+	 
+	 
 	public DataService() {	
 		
 		super();
@@ -44,4 +46,11 @@ public class DataService {
 		}
 		return listSheet;
 	}
+	
+	/*public static void main(String[] args) {
+		List<Record> list = DataService.getRecords("ENR062A3", "2016-10-24");
+		for(Record re : list) {
+			System.out.println(re);
+		}
+	} */
 }
