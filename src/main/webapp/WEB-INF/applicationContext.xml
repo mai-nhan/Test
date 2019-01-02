@@ -6,12 +6,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<bean id="login" class="com.ifisolution.Login">
-		<property name="message" value="Welcome Spring"></property>
-	</bean>
-	
 	<bean id="service" class="com.ifisolution.service.DataService">	</bean>
 	<bean id="fetchdata" class="com.ifisolution.action.FetchingDataAction">	
 		<property name="data" ref="service"></property>
+	</bean>
+	<bean id="getPa" class="com.ifisolution.action.GetPaPerDay">	
+		<property name="service" ref="service"></property>
 	</bean>
 </beans>

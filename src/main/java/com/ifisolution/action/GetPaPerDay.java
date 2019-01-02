@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GetPaPerDay extends ActionSupport{
 	private String sheetName, date;
 	private List<Float> listPaPerDay;
-	private float ps;
+	private List<Float> listPsPerDay;
 	private DataService service;
 	public GetPaPerDay() {
 		super();
@@ -43,16 +43,16 @@ public class GetPaPerDay extends ActionSupport{
 		this.listPaPerDay = listPaPerDay;
 	}
 	
-	public float getPs() {
-		return ps;
+	public List<Float> getListPsPerDay() {
+		return listPsPerDay;
 	}
-
-	public void setPs(float ps) {
-		this.ps = ps;
+	public void setListPsPerDay(List<Float> listPsPerDay) {
+		this.listPsPerDay = listPsPerDay;
 	}
-
+	
 	public String execute() {
-		setListPaPerDay(new DataService().getPaPerDay(sheetName, date));
+		setListPaPerDay(service.getPaPerDay(sheetName, date));
+		setListPsPerDay(service.getPsPerDay(sheetName, date));
 		return "success";
 	}
 	
