@@ -9,6 +9,7 @@
 	<script type="text/javascript" src="js/highcharts.js"></script>
 	<script type="text/javascript" src="js/execute.js"></script>
 	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<script type="text/javascript"></script>
 </head>
 <body>
 	<div id="section1">
@@ -27,8 +28,9 @@
 		</label>
 	</div>
 	<div id="section2">
-		<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-		<div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+		<div id="container" ></div>
+		<hr id="line">
+		<div id="container2"></div>
 	</div>
 </body>
 </html>

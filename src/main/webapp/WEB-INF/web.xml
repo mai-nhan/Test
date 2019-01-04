@@ -20,6 +20,10 @@
   </listener>
   
   <welcome-file-list>
+<<<<<<< HEAD
     <welcome-file>index.jsp</welcome-file>
+=======
+    <welcome-file>fetch.action</welcome-file>
+>>>>>>> aa2d99dcdbf26a6bff359d08f6df490a3e37fdb0
   </welcome-file-list>
 </web-app>

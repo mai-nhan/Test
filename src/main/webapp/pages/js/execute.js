@@ -14,16 +14,13 @@ $(document).ready(function(){
 		    type:'datetime',			   
 	    	dateTimeLabelFormats: {
 	            day: '%a'
-	        }
-		   ,
-		    
+	        },
 		  };
 		var yAxis={
 		    min: 0,
 		    title: {text: 'Puissance appelée (kW)'}
 		};
-		var tooltip={
-				
+		var tooltip={				
 		    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
 		    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
 		      '<td style="padding:0"><b>{point.y:.1f} kW</b></td></tr>',
@@ -35,15 +32,17 @@ $(document).ready(function(){
 		var poinstart = Date.UTC(temp.getFullYear(),temp.getMonth(),temp.getDate());
 		var plotOptions={
 			series: {
+				animation: false,
 				point: {
 	                events: {
 	                    click: function () {		                    	
 		                    pointClick.date = getDate(new Date(this.category));
-		                    pointClick.value = this.y;
-	                        alert('Category: ' + pointClick.date);
+		                    pointClick.value = this.y;	
+		                    var color=this.color;
 	                        $.getJSON("getPa.action?sheetName="+pointClick.series+"&date="+pointClick.date, function(dl){
-	                        	//alert(dl.listPaPerDay.length);
-	                        	drawContainer2(dl);
+	                        	//alert(color);
+	                        	redrawSection2();
+	                        	drawContainer2(dl,color);
 	                        });
 	                    }
 	                }
@@ -77,8 +76,7 @@ $(document).ready(function(){
 			  series: [
 				  {
 					  name: paData[0].name,
-					  data: paData[0].data,
-					  
+					  data: paData[0].data,					  
 				  },
 				  {
 					  name: paData[1].name,
@@ -94,8 +92,7 @@ $(document).ready(function(){
 		
 		$('#ENR062A3').click (function(e){	
 	        if (this.checked){           
-	            chart1.series[0].hide();
-	           
+	            chart1.series[0].hide();	           
 	        }
 	        else{
 	            chart1.series[0].show();
@@ -119,10 +116,13 @@ $(document).ready(function(){
 	    });
 	});
 });
+<<<<<<< HEAD
 function drawContainer2(dl){	
+=======
+function drawContainer2(dl,col){
+>>>>>>> aa2d99dcdbf26a6bff359d08f6df490a3e37fdb0
 	var datas = [] = dl.listPsPerDay;
 	var dataa = [] = dl.listPaPerDay;
-
 	var t = 0;
 	  function setDt(inputData) {
 	            // generate an array of random data
@@ -142,7 +142,7 @@ function drawContainer2(dl){
 	  Highcharts.chart('container2', {
 	    chart:{
 	      //animation: Highcharts.svg, // don't animate in old IE
-	    	marginRight: 100, 
+	    	marginRight: 80, 
 	    },
 	    time: {
 	        useUTC: false
@@ -167,9 +167,6 @@ function drawContainer2(dl){
 	    yAxis: {
 	      title: {
 	        text: 'Puissance (kW)'
-	      },
-	      labels: {
-	        
 	      }
 	    },
 	    tooltip: {
@@ -203,11 +200,13 @@ function drawContainer2(dl){
 	    series: [{
 	      type: 'area',
 	      name: 'PA',
-	      data: setDt(dataa)
+	      data: setDt(dataa),
+	      color: col
 	    }, {
 	      type: 'spline',
 	      name: 'PS',
-	      data: setDt(datas)
+	      data: setDt(datas),
+	      color: '#FF6600'
 	    }]
 	  });
 }
@@ -218,4 +217,9 @@ function getDate(date){
 	if(month<10) month="0"+month;
 	if(d<10) d="0"+d;
 	return year+"-"+month+"-"+d;
+}
+function redrawSection2(){
+	$('#section2').css("padding-top",'0');
+	$('#line').css("visibility",'visible');	
+	$('#container2').css({'min-width': '310px',	'height': '300px', 'margin': '0 auto'});
 }
