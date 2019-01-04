@@ -20,6 +20,6 @@
   </listener>
   
   <welcome-file-list>
-    <welcome-file>pages/index.jsp</welcome-file>
+    <welcome-file>fetch.action</welcome-file>
   </welcome-file-list>
 </web-app>

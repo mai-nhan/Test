@@ -5,13 +5,46 @@
 *{
 	box-sizing: border-box;
 }
+html, body{
+	height: 100%;
+	width: 100%;
+}
+body::after{
+	clear: both;
+	content: '';
+	display: table;
+}
+#section1, #section2{
+	height: 100%;
+}
 #section1{
 	width: 15%;
 	padding: 20px;
 	float: left;
 	text-align: center;
+	background-color: #93CDDD;
+}
+#section1 hr{
+	margin: 20px auto;
+	border-color: black;
+}
+#section1 label{
+	margin: 1% 0 0 2%;
+	text-align: left;
+	display: block;
 }
 #section2{
 	width: 85%;
 	float: right;
+	padding-top: 10%;
+}
+#container{
+	min-width: 310px; 
+	max-height: 350px;
+	margin: 0 auto;
+}
+#line{
+	margin: 10px auto;
+	visibility: hidden;
+	border-color:  #93CDDD;
 }
