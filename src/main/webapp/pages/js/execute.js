@@ -119,8 +119,7 @@ $(document).ready(function(){
 	    });
 	});
 });
-function drawContainer2(dl){
-	alert(dl.listPaPerDay.length);
+function drawContainer2(dl){	
 	var datas = [] = dl.listPsPerDay;
 	var dataa = [] = dl.listPaPerDay;
 
