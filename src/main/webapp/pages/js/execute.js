@@ -37,11 +37,12 @@ $(document).ready(function(){
 	                events: {
 	                    click: function () {		                    	
 		                    pointClick.date = getDate(new Date(this.category));
-		                    pointClick.value = this.y;	                        
+		                    pointClick.value = this.y;	
+		                    var color=this.color;
 	                        $.getJSON("getPa.action?sheetName="+pointClick.series+"&date="+pointClick.date, function(dl){
-	                        	//alert(dl.listPaPerDay.length);
+	                        	//alert(color);
 	                        	redrawSection2();
-	                        	drawContainer2(dl,this.color);
+	                        	drawContainer2(dl,color);
 	                        });
 	                    }
 	                }
@@ -215,7 +216,6 @@ function getDate(date){
 }
 function redrawSection2(){
 	$('#section2').css("padding-top",'0');
-	$('#line').css("visibility",'visible');
-	$('#container').css("height",'300px');
+	$('#line').css("visibility",'visible');	
 	$('#container2').css({'min-width': '310px',	'height': '300px', 'margin': '0 auto'});
 }

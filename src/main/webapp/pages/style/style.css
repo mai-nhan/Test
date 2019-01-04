@@ -40,7 +40,7 @@ body::after{
 }
 #container{
 	min-width: 310px; 
-	max-height: 350px;
+	max-height: 300px;
 	margin: 0 auto;
 }
 #line{
