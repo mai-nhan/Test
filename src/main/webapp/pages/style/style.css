@@ -38,10 +38,10 @@ body::after{
 	float: right;
 	padding-top: 10%;
 }
-#container{
+#container,#container2{
 	min-width: 310px; 
-	max-height: 300px;
-	margin: 0 auto;
+	height: 300px;
+	margin: 0 5%;
 }
 #line{
 	margin: 10px auto;

@@ -1,7 +1,0 @@
-com\ifisolution\action\FetchingDataAction.class
-com\ifisolution\model\Record.class
-com\ifisolution\model\Sheet.class
-com\ifisolution\common\DataUri.class
-com\ifisolution\model\DatetimePa.class
-com\ifisolution\action\GetPaPerDay.class
-com\ifisolution\service\DataService.class

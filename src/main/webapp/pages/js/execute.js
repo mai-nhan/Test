@@ -116,11 +116,7 @@ $(document).ready(function(){
 	    });
 	});
 });
-<<<<<<< HEAD
-function drawContainer2(dl){	
-=======
 function drawContainer2(dl,col){
->>>>>>> aa2d99dcdbf26a6bff359d08f6df490a3e37fdb0
 	var datas = [] = dl.listPsPerDay;
 	var dataa = [] = dl.listPaPerDay;
 	var t = 0;
@@ -221,5 +217,5 @@ function getDate(date){
 function redrawSection2(){
 	$('#section2').css("padding-top",'0');
 	$('#line').css("visibility",'visible');	
-	$('#container2').css({'min-width': '310px',	'height': '300px', 'margin': '0 auto'});
+	//$('#container2').css({'min-width': '310px',	'height': '300px', 'margin': '0 auto'});
 }
